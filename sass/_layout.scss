@@ -1,0 +1,33 @@
+.container {
+  // we use max-width so container can decrease if there is not enough space
+  max-width: 100rem; // 1200px, occupy 100% vw if less
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+  min-height: 50rem; // testing purposes
+}
+
+.header {
+  height: 7rem; // 70px
+  background-color: #fff;
+  border-bottom: var(--color-grey-light-2);
+}
+
+.content {
+  // to use flex-box set display of container to flex
+  display: flex;
+}
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  // dont want grow, or shrink if there is space but keep it at 18%
+  flex: 0 0 18%;
+}
+
+.hotel-view {
+  background-color: #fff;
+  background-color: orangered;
+
+  // we want it occupy entire remaining space, so 'grow' as much as it can
+  flex: 1; // 1 means grows as much as it can
+}
