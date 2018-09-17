@@ -26,11 +26,16 @@
   background-color: var(--color-grey-dark-1);
   // dont want grow, or shrink if there is space but keep it at 18%
   flex: 0 0 18%;
+
+  display: flex;
+  flex-direction: column; // justify content is usually left to right so changing direction means we can align vertically
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: #fff;
   background-color: orangered;
+  height: 80rem; // testing
 
   // we want it occupy entire remaining space, so 'grow' as much as it can
   flex: 1; // 1 means grows as much as it can
