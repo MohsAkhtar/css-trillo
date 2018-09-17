@@ -2,7 +2,7 @@
 // LOGO
 .logo {
   height: 3.25rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
 
 //////////////////
@@ -70,26 +70,57 @@
 //////////////////
 // USER NAV
 .user-nav {
-  background-color: green;
+  // overwriting the header align-items so it will stretch from top to bottom
+  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+
+  // selects all user-nav direct children
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    // setting height so hover effect stretches from top to bottom
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
   &__icon-box {
+    position: relative;
   }
 
   &__icon {
     height: 2.25rem;
     width: 2.25rem;
+    fill: var(--color-grey-dark-2);
   }
 
   &__notification {
-  }
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
 
-  &__user {
+    // flex-box also works for text, here we are centering text in notification circle using flex-box
+    display: flex;
+    justify-content: center; // centering horizontally
+    align-items: center; // centering vertically
   }
 
   &__user-photo {
     height: 3.75rem;
     border-radius: 50%;
-  }
-
-  &__user-name {
+    margin-right: 1rem;
   }
 }
