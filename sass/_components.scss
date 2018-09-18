@@ -349,7 +349,8 @@
   display: flex;
   flex-wrap: wrap;
   &__item {
-    flex: 0 0 50%; // so we can have two elements side by side
+    flex: 0 0 50%;
+    // so we can have two elements side by side
     margin-bottom: 0.7rem;
   }
   &__item::before {
@@ -360,15 +361,18 @@
     margin-right: 0.7rem;
     // how to include svg in css, cannot use sprite file like html
     // Older browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
     // Newer browsers - masks, masks define an area where we can look through an element and see what is behind the element
     // here we are setting background colour and then setting the image as a mask so we can see the colour
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 // ////////////////
