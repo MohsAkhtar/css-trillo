@@ -24,6 +24,11 @@
   --line: 1px solid var(--color-grey-light-2);
 }
 
+// cannot use css variables for media queries so we are using sass
+$bp-largest: 75em; //1200px in em not rem
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+
 * {
   margin: 0;
   padding: 0;
@@ -38,6 +43,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; // so 1rem = 10px, 62.% of 16px
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 
 body {

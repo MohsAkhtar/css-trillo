@@ -132,12 +132,27 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  // on smaller screens the nav is at top (see layout), here we are setting items to flex so they appear side by side at this screen size
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     // give margin to all items apart from last
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+      @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    // we want items to be evenly distributed on top menu for smaller screens so setting flex: 1, ability to grow as much as they can
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
+      margin-bottom: 0;
     }
   }
 
@@ -182,6 +197,12 @@
 
     display: flex;
     align-items: center;
+
+    // get text aligned center for menu items on smaller screens when menu is on top
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
   }
 
   &__icon {
@@ -199,6 +220,11 @@
   color: car(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+
+  // get rid of legal text smaller screens
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 //////////////////
@@ -382,17 +408,18 @@
   }
 
   &__friends {
+    display: flex; // sets pictures to always be side by side and stops it wrapping to next line
   }
 
   &__photo {
-    box-sizing: default; // to stop pictures shrinking, we are adding border to be on top
+    box-sizing: content-box; // to stop pictures shrinking, we are adding border to be on top
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.15rem; // to get photos to overlap
+      margin-right: -2rem; // to get photos to overlap
     }
   }
 }
@@ -406,6 +433,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden; // stops quotation icon overflowing
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -464,8 +496,12 @@
 //////////////////
 // CALL TO ACTION
 .cta {
-  padding: 3.5rem;
+  padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     font-size: 2rem;
