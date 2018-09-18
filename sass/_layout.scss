@@ -21,6 +21,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: $bp-smallest) {
+    flex-wrap: wrap;
+    align-items: space-around;
+    height: 12rem; // adding height to account for items being on different lines
+  }
 }
 
 .content {
@@ -56,9 +62,14 @@
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
 
-  // decreasing padding on smaller screens
+  // decreasing padding on medium screens
   @media only screen and (max-width: $bp-medium) {
     padding: 3rem;
+  }
+
+  // changing display of details so they are on top of eachother for smaller screens
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
   }
 }
 
@@ -71,6 +82,11 @@
   @media only screen and (max-width: $bp-medium) {
     padding: 2rem;
     margin-right: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    margin-right: 0;
+    margin-bottom: 3rem;
   }
 }
 
